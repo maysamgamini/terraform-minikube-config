@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path = "/root/.kube/config"  # Path inside the agent container
+  config_path = "/home/tfc-agent/.kube/config"
 }
 
 resource "kubernetes_deployment" "nginx" {
