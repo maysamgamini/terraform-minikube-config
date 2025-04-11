@@ -8,8 +8,10 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path    = "/home/tfc-agent/.kube/config"
-  config_context = "minikube"
+  host = "https://host.docker.internal:53935"
+  client_certificate = file("/home/tfc-agent/.minikube/profiles/minikube/client.crt")
+  client_key = file("/home/tfc-agent/.minikube/profiles/minikube/client.key")
+  cluster_ca_certificate = file("/home/tfc-agent/.minikube/ca.crt")
   insecure = true
 }
 
