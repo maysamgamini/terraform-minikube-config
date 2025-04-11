@@ -8,7 +8,9 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path = "/home/tfc-agent/.kube/config"
+  config_path = "C:\\Users\\MG106130\\.kube\\config"
+  config_context = "minikube"
+  insecure = true
 }
 
 resource "kubernetes_deployment" "nginx" {
