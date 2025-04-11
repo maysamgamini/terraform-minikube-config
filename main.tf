@@ -8,8 +8,7 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path = "C:\\Users\\MG106130\\.kube\\config"
-  config_context = "minikube"
+  host = "https://127.0.0.1:53935"
   insecure = true
 }
 
