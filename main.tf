@@ -12,7 +12,6 @@ provider "kubernetes" {
   client_certificate = file("/home/tfc-agent/.minikube/profiles/minikube/client.crt")
   client_key = file("/home/tfc-agent/.minikube/profiles/minikube/client.key")
   cluster_ca_certificate = file("/home/tfc-agent/.minikube/ca.crt")
-  insecure = true
 }
 
 resource "kubernetes_deployment" "nginx" {
