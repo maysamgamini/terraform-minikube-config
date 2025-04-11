@@ -8,10 +8,15 @@ terraform {
 }
 
 provider "kubernetes" {
-  host = "https://host.docker.internal:53935"
+  host = "https://kubernetes.docker.internal:${data.external.minikube_port.result.port}"
   client_certificate = file("/home/tfc-agent/.minikube/profiles/minikube/client.crt")
   client_key = file("/home/tfc-agent/.minikube/profiles/minikube/client.key")
   cluster_ca_certificate = file("/home/tfc-agent/.minikube/ca.crt")
+}
+
+# Get the Minikube API port
+data "external" "minikube_port" {
+  program = ["sh", "-c", "kubectl config view -o jsonpath='{\"port\": \"{.clusters[?(@.name == \\\"minikube\\\")].cluster.server}\"}'"]
 }
 
 resource "kubernetes_deployment" "nginx" {
