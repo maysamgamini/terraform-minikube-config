@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "kubernetes" {
-  host = "https://192.168.49.2:55310"
+  host = "https://kubernetes.docker.internal:55310"
   client_certificate = file("/home/tfc-agent/.minikube/profiles/minikube/client.crt")
   client_key = file("/home/tfc-agent/.minikube/profiles/minikube/client.key")
   cluster_ca_certificate = file("/home/tfc-agent/.minikube/ca.crt")
